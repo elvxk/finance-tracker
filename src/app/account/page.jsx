@@ -6,6 +6,9 @@ import { currentUser } from "@clerk/nextjs/server";
 const Account = async () => {
   const user = await currentUser();
   const accounts = await prisma.bankAccount.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
     where: {
       userId: user.id,
     },
