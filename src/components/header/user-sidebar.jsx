@@ -16,7 +16,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-// import ClerkBtn from "./ClerkBtn";
+import ClerkBtn from "../clerk-btn";
 
 const UserSidebar = ({ user }) => {
   const { isMobile } = useSidebar();
@@ -72,8 +72,8 @@ const UserSidebar = ({ user }) => {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            {/* <ClerkBtn name="Setting" event="setting" icon={<UserCog />} /> */}
-            {/* <ClerkBtn name="Log out" event="logout" icon={<LogOut />} /> */}
+            <ClerkBtn name="Setting" event="setting" icon={<UserCog />} />
+            <ClerkBtn name="Log out" event="logout" icon={<LogOut />} />
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

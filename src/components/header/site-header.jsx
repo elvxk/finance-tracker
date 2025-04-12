@@ -16,6 +16,7 @@ import {
 import LogoSidebar from "./logo-sidebar";
 import { NavSidebar } from "./nav-sidebar";
 import UserSidebar from "./user-sidebar";
+import { useUser } from "@clerk/nextjs";
 
 const data = {
   navSidebar: [
@@ -48,6 +49,7 @@ const data = {
 };
 
 export function SiteHeader({ ...props }) {
+  const { user } = useUser();
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -57,7 +59,7 @@ export function SiteHeader({ ...props }) {
         <NavSidebar items={data.navSidebar} />
       </SidebarContent>
       <SidebarFooter>
-        <UserSidebar />
+        <UserSidebar user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

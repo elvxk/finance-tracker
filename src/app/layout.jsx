@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { SiteHeader } from "@/components/header/site-header";
 import TopSidebar from "@/components/header/top-sidebar";
+import { ClerkProvider } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,27 +29,34 @@ export const metadata = {
   manifest: "/site.webmanifest",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const user = await currentUser();
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <SidebarProvider>
-            <SiteHeader />
-            <SidebarInset>
-              <TopSidebar />
-              {children}
-            </SidebarInset>
-          </SidebarProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            {user ? (
+              <SidebarProvider defaultOpen={false}>
+                <SiteHeader />
+                <SidebarInset>
+                  <TopSidebar />
+                  {children}
+                </SidebarInset>
+              </SidebarProvider>
+            ) : (
+              children
+            )}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
