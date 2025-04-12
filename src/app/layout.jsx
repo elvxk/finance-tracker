@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/header/site-header";
 import TopSidebar from "@/components/header/top-sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +49,8 @@ export default async function RootLayout({ children }) {
                 <SiteHeader />
                 <SidebarInset>
                   <TopSidebar />
-                  {children}
+                  <div className="p-4 lg:p-6">{children}</div>
+                  <Toaster />
                 </SidebarInset>
               </SidebarProvider>
             ) : (
