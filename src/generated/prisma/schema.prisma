@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model BankAccount {
+  id           String        @id @default(uuid()) // UUID untuk ID unik
+  name         String // Nama akun bank
+  userId       String // ID user dari Clerk
+  transactions Transaction[] // Relasi ke Transaction
+  balance      Decimal // Saldo akun bank
+  createdAt    DateTime      @default(now()) // Waktu pembuatan
+  updatedAt    DateTime      @updatedAt // Waktu pembaruan terakhir
+}
+
+model Category {
+  id           String        @id @default(uuid()) // UUID untuk ID unik kategori
+  name         String // Nama kategori
+  userId       String // ID user dari Clerk
+  transactions Transaction[] // Relasi ke Transaction
+  createdAt    DateTime      @default(now()) // Waktu pembuatan
+  updatedAt    DateTime      @updatedAt // Waktu pembaruan terakhir
+}
+
+model Transaction {
+  id            String      @id @default(uuid()) // UUID untuk ID unik
+  name          String // Nama transaksi
+  amount        Decimal // Jumlah uang transaksi
+  isIncome      Boolean // True untuk income, False untuk expense
+  date          DateTime // Tanggal transaksi
+  categoryId    String // Foreign key ke Category
+  category      Category    @relation(fields: [categoryId], references: [id])
+  bankAccountId String // Foreign key ke BankAccount
+  bankAccount   BankAccount @relation(fields: [bankAccountId], references: [id])
+  userId        String // ID user dari Clerk
+  createdAt     DateTime    @default(now()) // Waktu pembuatan
+  updatedAt     DateTime    @updatedAt // Waktu pembaruan terakhir
+}
