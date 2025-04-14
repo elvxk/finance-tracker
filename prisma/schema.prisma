@@ -39,6 +39,7 @@ model Transaction {
   bankAccountId String       // Foreign key ke BankAccount
   bankAccount   BankAccount  @relation(fields: [bankAccountId], references: [id])
   userId        String       // ID user dari Clerk
+  currentBalance  Decimal
   createdAt     DateTime     @default(now()) // Waktu pembuatan
   updatedAt     DateTime     @updatedAt // Waktu pembaruan terakhir
 }

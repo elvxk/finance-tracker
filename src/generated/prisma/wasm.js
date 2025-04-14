@@ -143,6 +143,7 @@ exports.Prisma.TransactionScalarFieldEnum = {
   categoryId: 'categoryId',
   bankAccountId: 'bankAccountId',
   userId: 'userId',
+  currentBalance: 'currentBalance',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

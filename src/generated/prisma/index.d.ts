@@ -3313,10 +3313,12 @@ export namespace Prisma {
 
   export type TransactionAvgAggregateOutputType = {
     amount: Decimal | null
+    currentBalance: Decimal | null
   }
 
   export type TransactionSumAggregateOutputType = {
     amount: Decimal | null
+    currentBalance: Decimal | null
   }
 
   export type TransactionMinAggregateOutputType = {
@@ -3328,6 +3330,7 @@ export namespace Prisma {
     categoryId: string | null
     bankAccountId: string | null
     userId: string | null
+    currentBalance: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3341,6 +3344,7 @@ export namespace Prisma {
     categoryId: string | null
     bankAccountId: string | null
     userId: string | null
+    currentBalance: Decimal | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3354,6 +3358,7 @@ export namespace Prisma {
     categoryId: number
     bankAccountId: number
     userId: number
+    currentBalance: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3362,10 +3367,12 @@ export namespace Prisma {
 
   export type TransactionAvgAggregateInputType = {
     amount?: true
+    currentBalance?: true
   }
 
   export type TransactionSumAggregateInputType = {
     amount?: true
+    currentBalance?: true
   }
 
   export type TransactionMinAggregateInputType = {
@@ -3377,6 +3384,7 @@ export namespace Prisma {
     categoryId?: true
     bankAccountId?: true
     userId?: true
+    currentBalance?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3390,6 +3398,7 @@ export namespace Prisma {
     categoryId?: true
     bankAccountId?: true
     userId?: true
+    currentBalance?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3403,6 +3412,7 @@ export namespace Prisma {
     categoryId?: true
     bankAccountId?: true
     userId?: true
+    currentBalance?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3503,6 +3513,7 @@ export namespace Prisma {
     categoryId: string
     bankAccountId: string
     userId: string
+    currentBalance: Decimal
     createdAt: Date
     updatedAt: Date
     _count: TransactionCountAggregateOutputType | null
@@ -3535,6 +3546,7 @@ export namespace Prisma {
     categoryId?: boolean
     bankAccountId?: boolean
     userId?: boolean
+    currentBalance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -3550,6 +3562,7 @@ export namespace Prisma {
     categoryId?: boolean
     bankAccountId?: boolean
     userId?: boolean
+    currentBalance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -3565,6 +3578,7 @@ export namespace Prisma {
     categoryId?: boolean
     bankAccountId?: boolean
     userId?: boolean
+    currentBalance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -3580,11 +3594,12 @@ export namespace Prisma {
     categoryId?: boolean
     bankAccountId?: boolean
     userId?: boolean
+    currentBalance?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type TransactionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "amount" | "isIncome" | "date" | "categoryId" | "bankAccountId" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["transaction"]>
+  export type TransactionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "amount" | "isIncome" | "date" | "categoryId" | "bankAccountId" | "userId" | "currentBalance" | "createdAt" | "updatedAt", ExtArgs["result"]["transaction"]>
   export type TransactionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | CategoryDefaultArgs<ExtArgs>
     bankAccount?: boolean | BankAccountDefaultArgs<ExtArgs>
@@ -3613,6 +3628,7 @@ export namespace Prisma {
       categoryId: string
       bankAccountId: string
       userId: string
+      currentBalance: Prisma.Decimal
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["transaction"]>
@@ -4048,6 +4064,7 @@ export namespace Prisma {
     readonly categoryId: FieldRef<"Transaction", 'String'>
     readonly bankAccountId: FieldRef<"Transaction", 'String'>
     readonly userId: FieldRef<"Transaction", 'String'>
+    readonly currentBalance: FieldRef<"Transaction", 'Decimal'>
     readonly createdAt: FieldRef<"Transaction", 'DateTime'>
     readonly updatedAt: FieldRef<"Transaction", 'DateTime'>
   }
@@ -4510,6 +4527,7 @@ export namespace Prisma {
     categoryId: 'categoryId',
     bankAccountId: 'bankAccountId',
     userId: 'userId',
+    currentBalance: 'currentBalance',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4733,6 +4751,7 @@ export namespace Prisma {
     categoryId?: StringFilter<"Transaction"> | string
     bankAccountId?: StringFilter<"Transaction"> | string
     userId?: StringFilter<"Transaction"> | string
+    currentBalance?: DecimalFilter<"Transaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeFilter<"Transaction"> | Date | string
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
@@ -4748,6 +4767,7 @@ export namespace Prisma {
     categoryId?: SortOrder
     bankAccountId?: SortOrder
     userId?: SortOrder
+    currentBalance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     category?: CategoryOrderByWithRelationInput
@@ -4766,6 +4786,7 @@ export namespace Prisma {
     categoryId?: StringFilter<"Transaction"> | string
     bankAccountId?: StringFilter<"Transaction"> | string
     userId?: StringFilter<"Transaction"> | string
+    currentBalance?: DecimalFilter<"Transaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeFilter<"Transaction"> | Date | string
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
@@ -4781,6 +4802,7 @@ export namespace Prisma {
     categoryId?: SortOrder
     bankAccountId?: SortOrder
     userId?: SortOrder
+    currentBalance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: TransactionCountOrderByAggregateInput
@@ -4802,6 +4824,7 @@ export namespace Prisma {
     categoryId?: StringWithAggregatesFilter<"Transaction"> | string
     bankAccountId?: StringWithAggregatesFilter<"Transaction"> | string
     userId?: StringWithAggregatesFilter<"Transaction"> | string
+    currentBalance?: DecimalWithAggregatesFilter<"Transaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeWithAggregatesFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Transaction"> | Date | string
   }
@@ -4940,6 +4963,7 @@ export namespace Prisma {
     isIncome: boolean
     date: Date | string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutTransactionsInput
@@ -4955,6 +4979,7 @@ export namespace Prisma {
     categoryId: string
     bankAccountId: string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4966,6 +4991,7 @@ export namespace Prisma {
     isIncome?: BoolFieldUpdateOperationsInput | boolean
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutTransactionsNestedInput
@@ -4981,6 +5007,7 @@ export namespace Prisma {
     categoryId?: StringFieldUpdateOperationsInput | string
     bankAccountId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4994,6 +5021,7 @@ export namespace Prisma {
     categoryId: string
     bankAccountId: string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5005,6 +5033,7 @@ export namespace Prisma {
     isIncome?: BoolFieldUpdateOperationsInput | boolean
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5018,6 +5047,7 @@ export namespace Prisma {
     categoryId?: StringFieldUpdateOperationsInput | string
     bankAccountId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5200,12 +5230,14 @@ export namespace Prisma {
     categoryId?: SortOrder
     bankAccountId?: SortOrder
     userId?: SortOrder
+    currentBalance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type TransactionAvgOrderByAggregateInput = {
     amount?: SortOrder
+    currentBalance?: SortOrder
   }
 
   export type TransactionMaxOrderByAggregateInput = {
@@ -5217,6 +5249,7 @@ export namespace Prisma {
     categoryId?: SortOrder
     bankAccountId?: SortOrder
     userId?: SortOrder
+    currentBalance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5230,12 +5263,14 @@ export namespace Prisma {
     categoryId?: SortOrder
     bankAccountId?: SortOrder
     userId?: SortOrder
+    currentBalance?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type TransactionSumOrderByAggregateInput = {
     amount?: SortOrder
+    currentBalance?: SortOrder
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -5492,6 +5527,7 @@ export namespace Prisma {
     isIncome: boolean
     date: Date | string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutTransactionsInput
@@ -5505,6 +5541,7 @@ export namespace Prisma {
     date: Date | string
     categoryId: string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5547,6 +5584,7 @@ export namespace Prisma {
     categoryId?: StringFilter<"Transaction"> | string
     bankAccountId?: StringFilter<"Transaction"> | string
     userId?: StringFilter<"Transaction"> | string
+    currentBalance?: DecimalFilter<"Transaction"> | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeFilter<"Transaction"> | Date | string
   }
@@ -5558,6 +5596,7 @@ export namespace Prisma {
     isIncome: boolean
     date: Date | string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
     bankAccount: BankAccountCreateNestedOneWithoutTransactionsInput
@@ -5571,6 +5610,7 @@ export namespace Prisma {
     date: Date | string
     bankAccountId: string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5709,6 +5749,7 @@ export namespace Prisma {
     date: Date | string
     categoryId: string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5720,6 +5761,7 @@ export namespace Prisma {
     isIncome?: BoolFieldUpdateOperationsInput | boolean
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutTransactionsNestedInput
@@ -5733,6 +5775,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     categoryId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5745,6 +5788,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     categoryId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5757,6 +5801,7 @@ export namespace Prisma {
     date: Date | string
     bankAccountId: string
     userId: string
+    currentBalance: Decimal | DecimalJsLike | number | string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5768,6 +5813,7 @@ export namespace Prisma {
     isIncome?: BoolFieldUpdateOperationsInput | boolean
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     bankAccount?: BankAccountUpdateOneRequiredWithoutTransactionsNestedInput
@@ -5781,6 +5827,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     bankAccountId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5793,6 +5840,7 @@ export namespace Prisma {
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     bankAccountId?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
+    currentBalance?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
