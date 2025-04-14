@@ -29,16 +29,17 @@ model Category {
 }
 
 model Transaction {
-  id            String      @id @default(uuid()) // UUID untuk ID unik
-  name          String // Nama transaksi
-  amount        Decimal // Jumlah uang transaksi
-  isIncome      Boolean // True untuk income, False untuk expense
-  date          DateTime // Tanggal transaksi
-  categoryId    String // Foreign key ke Category
-  category      Category    @relation(fields: [categoryId], references: [id])
-  bankAccountId String // Foreign key ke BankAccount
-  bankAccount   BankAccount @relation(fields: [bankAccountId], references: [id])
-  userId        String // ID user dari Clerk
-  createdAt     DateTime    @default(now()) // Waktu pembuatan
-  updatedAt     DateTime    @updatedAt // Waktu pembaruan terakhir
+  id             String      @id @default(uuid()) // UUID untuk ID unik
+  name           String // Nama transaksi
+  amount         Decimal // Jumlah uang transaksi
+  isIncome       Boolean // True untuk income, False untuk expense
+  date           DateTime // Tanggal transaksi
+  categoryId     String // Foreign key ke Category
+  category       Category    @relation(fields: [categoryId], references: [id])
+  bankAccountId  String // Foreign key ke BankAccount
+  bankAccount    BankAccount @relation(fields: [bankAccountId], references: [id])
+  userId         String // ID user dari Clerk
+  currentBalance Decimal
+  createdAt      DateTime    @default(now()) // Waktu pembuatan
+  updatedAt      DateTime    @updatedAt // Waktu pembaruan terakhir
 }
