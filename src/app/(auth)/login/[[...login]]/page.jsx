@@ -71,6 +71,7 @@ export default function LoginPage() {
           )}
         </Clerk.Loading>
       </SignIn.Root>
+      <div id="clerk-captcha" />
     </div>
   );
 }

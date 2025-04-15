@@ -21,6 +21,8 @@ import {
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 
 const PaymentAdd = ({ categories, bankAccounts, user }) => {
   const [isOpen, setIsOpen] = useState(false); // State untuk mengontrol dialog
@@ -29,7 +31,7 @@ const PaymentAdd = ({ categories, bankAccounts, user }) => {
   const [selectedCategory, setSelectedCategory] = useState(""); // State untuk kategori
   const [selectedBankAccount, setSelectedBankAccount] = useState(""); // State untuk akun bank
   const [date, setDate] = useState(""); // State untuk tanggal transaksi
-  const [transactionType, setTransactionType] = useState(""); // State untuk tipe transaksi (income/expense)
+  const [transactionType, setTransactionType] = useState("expense"); // State untuk tipe transaksi (income/expense)
   const router = useRouter(); // Router untuk refresh halaman
 
   const handleSaveTransaction = async () => {
@@ -108,7 +110,7 @@ const PaymentAdd = ({ categories, bankAccounts, user }) => {
             onChange={(e) => setAmount(e.target.value)}
           />
           <Select onValueChange={(value) => setSelectedCategory(value)}>
-            <SelectTrigger>
+            <SelectTrigger className="w-full">
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
             <SelectContent>
@@ -120,7 +122,7 @@ const PaymentAdd = ({ categories, bankAccounts, user }) => {
             </SelectContent>
           </Select>
           <Select onValueChange={(value) => setSelectedBankAccount(value)}>
-            <SelectTrigger>
+            <SelectTrigger className="w-full">
               <SelectValue placeholder="Select Bank Account" />
             </SelectTrigger>
             <SelectContent>
@@ -136,18 +138,27 @@ const PaymentAdd = ({ categories, bankAccounts, user }) => {
             placeholder="Transaction Date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
+            className="flex flex-col justify-center"
           />
-          <Select onValueChange={(value) => setTransactionType(value)}>
-            <SelectTrigger>
-              <SelectValue placeholder="Select Transaction Type" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="income">Income</SelectItem>
-              <SelectItem value="expense">Expense</SelectItem>
-            </SelectContent>
-          </Select>
+
+          <RadioGroup
+            value={transactionType}
+            onValueChange={setTransactionType}
+          >
+            <div className="flex sm:flex-col gap-2 justify-around">
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="expense" id="expense" />
+                <Label htmlFor="expense">Expense</Label>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="income" id="income" />
+                <Label htmlFor="income">Income</Label>
+              </div>
+            </div>
+          </RadioGroup>
         </div>
-        <DialogFooter>
+        <DialogFooter className="mt-2">
           <Button
             onClick={handleSaveTransaction}
             disabled={
