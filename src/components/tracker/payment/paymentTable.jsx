@@ -132,35 +132,46 @@ const PaymentTable = ({ data }) => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Name</TableHead>
-            <TableHead>Amount</TableHead>
-            <TableHead>Type</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Bank</TableHead>
-            <TableHead>Current Balance</TableHead>
-            {/* <TableHead>Action</TableHead> */}
+            <TableHead className="">Name</TableHead>
+            <TableHead className="text-end">Amount</TableHead>
+            <TableHead className="text-center">Type</TableHead>
+            <TableHead className="text-center">Date</TableHead>
+            <TableHead className="text-center">Category</TableHead>
+            <TableHead className="text-center">Bank</TableHead>
+            <TableHead className="text-end">Current Balance</TableHead>
+            {/* <TableHead className="text-center">Action</TableHead> */}
           </TableRow>
         </TableHeader>
         <TableBody>
           {filteredTransactions.map((transaction) => (
             <TableRow key={transaction.id}>
               <TableCell>{transaction.name}</TableCell>
-              <TableCell>{formatRupiah(transaction.amount)}</TableCell>
-              <TableCell>
+              <TableCell className={"text-end"}>
+                {formatRupiah(transaction.amount)}
+              </TableCell>
+              <TableCell className={"text-center"}>
                 {transaction.isIncome ? (
                   <Badge className="bg-green-500 text-white">Income</Badge>
                 ) : (
                   <Badge className="bg-red-500 text-white">Expense</Badge>
                 )}
               </TableCell>
-              <TableCell>
-                {new Date(transaction.date).toLocaleDateString()}
+              <TableCell className="text-center">
+                {new Date(transaction.date).toLocaleDateString("id-ID", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}
               </TableCell>
-              <TableCell>{transaction.category?.name || "N/A"}</TableCell>
-              <TableCell>{transaction.bankAccount?.name || "N/A"}</TableCell>
-              {/* Tampilkan nama bank */}
-              <TableCell>{formatRupiah(transaction.currentBalance)}</TableCell>
+              <TableCell className={"text-center"}>
+                {transaction.category?.name || "N/A"}
+              </TableCell>
+              <TableCell className={"text-center"}>
+                {transaction.bankAccount?.name || "N/A"}
+              </TableCell>
+              <TableCell className={"text-end"}>
+                {formatRupiah(transaction.currentBalance)}
+              </TableCell>
               {/* Format angka ke Rupiah */}
               {/* <TableCell> */}
               {/*   <Button */}
