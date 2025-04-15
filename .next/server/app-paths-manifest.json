@@ -1,12 +1,12 @@
 {
+  "/api/account/route": "app/api/account/route.js",
   "/api/transaction/route": "app/api/transaction/route.js",
   "/api/category/route": "app/api/category/route.js",
-  "/api/account/route": "app/api/account/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
   "/(auth)/register/[[...register]]/page": "app/(auth)/register/[[...register]]/page.js",
-  "/category/page": "app/category/page.js",
-  "/account/page": "app/account/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/(auth)/login/[[...login]]/page": "app/(auth)/login/[[...login]]/page.js",
-  "/page": "app/page.js",
-  "/history/page": "app/history/page.js"
+  "/account/page": "app/account/page.js",
+  "/history/page": "app/history/page.js",
+  "/category/page": "app/category/page.js",
+  "/page": "app/page.js"
 }
