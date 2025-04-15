@@ -1,0 +1,12 @@
+{
+  "/api/account/route": "/api/account",
+  "/api/transaction/route": "/api/transaction",
+  "/api/category/route": "/api/category",
+  "/(auth)/login/[[...login]]/page": "/login/[[...login]]",
+  "/_not-found/page": "/_not-found",
+  "/history/page": "/history",
+  "/category/page": "/category",
+  "/(auth)/register/[[...register]]/page": "/register/[[...register]]",
+  "/page": "/",
+  "/account/page": "/account"
+}
