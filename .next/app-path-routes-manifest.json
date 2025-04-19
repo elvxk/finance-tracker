@@ -1,12 +1,12 @@
 {
-  "/api/transaction/route": "/api/transaction",
   "/api/account/route": "/api/account",
   "/api/category/route": "/api/category",
+  "/api/transaction/route": "/api/transaction",
   "/_not-found/page": "/_not-found",
+  "/(auth)/register/[[...register]]/page": "/register/[[...register]]",
   "/(dashboard)/account/page": "/account",
   "/(dashboard)/category/page": "/category",
-  "/(auth)/login/[[...login]]/page": "/login/[[...login]]",
   "/(dashboard)/history/page": "/history",
   "/(dashboard)/page": "/",
-  "/(auth)/register/[[...register]]/page": "/register/[[...register]]"
+  "/(auth)/login/[[...login]]/page": "/login/[[...login]]"
 }
