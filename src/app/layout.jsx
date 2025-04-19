@@ -1,12 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { SiteHeader } from "@/components/header/site-header";
-import TopSidebar from "@/components/header/top-sidebar";
 import { ClerkProvider } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
-import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +26,6 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const user = await currentUser();
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
@@ -44,18 +38,7 @@ export default async function RootLayout({ children }) {
             enableSystem={false}
             disableTransitionOnChange
           >
-            {user ? (
-              <SidebarProvider defaultOpen={false}>
-                <SiteHeader />
-                <SidebarInset>
-                  <TopSidebar />
-                  <div className="p-4 lg:p-6">{children}</div>
-                  <Toaster />
-                </SidebarInset>
-              </SidebarProvider>
-            ) : (
-              children
-            )}
+            {children}
           </ThemeProvider>
         </body>
       </html>

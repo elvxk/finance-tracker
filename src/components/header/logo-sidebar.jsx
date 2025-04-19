@@ -1,3 +1,4 @@
+"use client";
 import { BadgeSwissFranc, PanelLeftClose } from "lucide-react";
 import { DropdownMenu, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import {
