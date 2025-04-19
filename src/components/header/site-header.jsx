@@ -1,11 +1,4 @@
-"use client";
-import {
-  ChartBarStacked,
-  ChartLine,
-  FileClock,
-  Home,
-  WalletCards,
-} from "lucide-react";
+import { sanitizeForClient } from "@/lib/sanitizeForClient";
 import {
   Sidebar,
   SidebarContent,
@@ -16,47 +9,19 @@ import {
 import LogoSidebar from "./logo-sidebar";
 import { NavSidebar } from "./nav-sidebar";
 import UserSidebar from "./user-sidebar";
-import { useUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
-const data = {
-  navSidebar: [
-    {
-      title: "Home",
-      url: "/",
-      icon: Home,
-    },
-    {
-      title: "Account",
-      url: "/account",
-      icon: WalletCards,
-    },
-    {
-      title: "Category",
-      url: "/category",
-      icon: ChartBarStacked,
-    },
-    {
-      title: "History",
-      url: "/history",
-      icon: FileClock,
-    },
-    {
-      title: "Statistic",
-      url: "/statistic",
-      icon: ChartLine,
-    },
-  ],
-};
+export async function SiteHeader({ ...props }) {
+  const userRaw = await currentUser();
+  const user = sanitizeForClient(userRaw);
 
-export function SiteHeader({ ...props }) {
-  const { user } = useUser();
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <LogoSidebar />
       </SidebarHeader>
       <SidebarContent>
-        <NavSidebar items={data.navSidebar} />
+        <NavSidebar />
       </SidebarContent>
       <SidebarFooter>
         <UserSidebar user={user} />
