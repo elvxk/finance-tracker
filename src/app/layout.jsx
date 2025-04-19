@@ -18,7 +18,7 @@ export const metadata = {
   description:
     " A user-friendly web app to track your income and expenses, helping you manage your finances and budget with ease.",
   icons: {
-    icon: ["/favicon-16x16.png", "/favicon-32x32.png", "/favicon.ico"],
+    icon: ["/favicon.ico"],
     apple: "/apple-touch-icon.png",
     android: ["/android-chrome-192x192.png", "/android-chrome-512x512.png"],
   },
