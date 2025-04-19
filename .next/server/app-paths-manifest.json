@@ -3,10 +3,10 @@
   "/api/category/route": "app/api/category/route.js",
   "/api/transaction/route": "app/api/transaction/route.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/(auth)/login/[[...login]]/page": "app/(auth)/login/[[...login]]/page.js",
-  "/(dashboard)/account/page": "app/(dashboard)/account/page.js",
-  "/(dashboard)/category/page": "app/(dashboard)/category/page.js",
   "/(auth)/register/[[...register]]/page": "app/(auth)/register/[[...register]]/page.js",
+  "/(dashboard)/account/page": "app/(dashboard)/account/page.js",
+  "/(auth)/login/[[...login]]/page": "app/(auth)/login/[[...login]]/page.js",
   "/(dashboard)/history/page": "app/(dashboard)/history/page.js",
-  "/(dashboard)/page": "app/(dashboard)/page.js"
+  "/(dashboard)/page": "app/(dashboard)/page.js",
+  "/(dashboard)/category/page": "app/(dashboard)/category/page.js"
 }

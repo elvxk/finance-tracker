@@ -3,10 +3,10 @@
   "/api/category/route": "/api/category",
   "/api/transaction/route": "/api/transaction",
   "/_not-found/page": "/_not-found",
-  "/(auth)/login/[[...login]]/page": "/login/[[...login]]",
-  "/(dashboard)/account/page": "/account",
-  "/(dashboard)/category/page": "/category",
   "/(auth)/register/[[...register]]/page": "/register/[[...register]]",
+  "/(dashboard)/account/page": "/account",
+  "/(auth)/login/[[...login]]/page": "/login/[[...login]]",
   "/(dashboard)/history/page": "/history",
-  "/(dashboard)/page": "/"
+  "/(dashboard)/page": "/",
+  "/(dashboard)/category/page": "/category"
 }
